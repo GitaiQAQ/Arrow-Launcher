@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Arrow Live WallPaper</string>
+    <string name="intercept_xposed_summary">Arrow launcher live wallpaper support by Gitai.me</string>
+</resources>
+

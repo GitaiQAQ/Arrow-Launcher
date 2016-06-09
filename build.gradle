@@ -1,0 +1,55 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'pl.itako:icon-version:1.1.+'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+subprojects {
+    ext {
+        config = [
+                applicationId : "me.gitai.arrowlauncher",
+
+                compileSdkVersion : 23,
+                buildToolsVersion : "23.0.1",
+                minSdkVersion : 15,
+                targetSdkVersion : 23,
+
+                releaseSigning : [
+                        storeFile : System.getenv("KEYSTORE"),
+                        storePassword : System.getenv("KEYSTORE_PASSWORD"),
+                        alias : System.getenv("KEY_ALIAS"),
+                        aliasPassword: System.getenv("KEY_PASSWORD")
+                ],
+
+                versionCode : 1,
+                versionName : "0.0.1"
+        ]
+
+        versions = [
+            androidSupport : "23.1.+",
+            okhttp: "3.2.0",
+            arcprogressstackview:"1.0.0",
+            fastjson:"1.1.47.android",
+            gson:"2.6.2"
+        ]
+    }
+}
